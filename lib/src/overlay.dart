@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 class AlphabetSymbolOverlay extends StatefulWidget {
   const AlphabetSymbolOverlay({
-    Key? key,
-    required this.symbolChangeNotifierScrollbar,
+    Key key,
+    this.symbolChangeNotifierScrollbar,
     this.alphabetOverlayOptions = const OverlayOptions(),
   }) : super(key: key);
 
@@ -19,9 +19,9 @@ class AlphabetSymbolOverlay extends StatefulWidget {
 }
 
 class _AlphabetSymbolOverlayState extends State<AlphabetSymbolOverlay> {
-  String? symbol;
+  String symbol;
   double opacity = 1.0;
-  Timer? timer;
+  Timer timer;
 
   @override
   void initState() {
@@ -61,7 +61,7 @@ class _AlphabetSymbolOverlayState extends State<AlphabetSymbolOverlay> {
 
   void _symbolChangeNotifierScrollbarListener() {
     if (widget.alphabetOverlayOptions.showOverlay) {
-      final String? tag = widget.symbolChangeNotifierScrollbar.value;
+      final String tag = widget.symbolChangeNotifierScrollbar.value;
       setState(() {
         symbol = tag;
       });

@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class DefaultScrollbarSymbol extends StatelessWidget {
   const DefaultScrollbarSymbol({
-    Key? key,
-    required this.symbol,
-    required this.state,
+    Key key,
+    this.symbol,
+    this.state,
     this.styleActive,
     this.styleInactive,
     this.styleDeactivated,
@@ -13,13 +13,13 @@ class DefaultScrollbarSymbol extends StatelessWidget {
 
   final String symbol;
   final AlphabetScrollbarItemState state;
-  final TextStyle? styleActive;
-  final TextStyle? styleInactive;
-  final TextStyle? styleDeactivated;
+  final TextStyle styleActive;
+  final TextStyle styleInactive;
+  final TextStyle styleDeactivated;
 
   @override
   Widget build(BuildContext context) {
-    TextStyle? textStyle;
+    TextStyle textStyle;
 
     switch (state) {
       case (AlphabetScrollbarItemState.active):
@@ -49,15 +49,15 @@ class DefaultScrollbarSymbol extends StatelessWidget {
 
 class DefaultAlphabetListHeader extends StatelessWidget {
   const DefaultAlphabetListHeader({
-    Key? key,
-    required this.symbol,
+    Key key,
+    this.symbol,
     this.backgroundColor,
     this.style,
   }) : super(key: key);
 
   final String symbol;
-  final Color? backgroundColor;
-  final TextStyle? style;
+  final Color backgroundColor;
+  final TextStyle style;
 
   @override
   Widget build(BuildContext context) {
@@ -81,15 +81,15 @@ class DefaultAlphabetListHeader extends StatelessWidget {
 
 class DefaultAlphabetOverlay extends StatelessWidget {
   const DefaultAlphabetOverlay({
-    Key? key,
-    required this.symbol,
+    Key key,
+    this.symbol,
     this.style,
     this.decoration,
   }) : super(key: key);
 
   final String symbol;
-  final TextStyle? style;
-  final BoxDecoration? decoration;
+  final TextStyle style;
+  final BoxDecoration decoration;
 
   @override
   Widget build(BuildContext context) {

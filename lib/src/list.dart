@@ -6,11 +6,11 @@ import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 
 class AlphabetList extends StatefulWidget {
   const AlphabetList({
-    Key? key,
-    required this.items,
-    required this.scrollController,
-    required this.symbolChangeNotifierList,
-    required this.symbolChangeNotifierScrollbar,
+    Key key,
+    this.items,
+    this.scrollController,
+    this.symbolChangeNotifierList,
+    this.symbolChangeNotifierScrollbar,
     this.alphabetListOptions = const ListOptions(),
   }) : super(key: key);
 
@@ -25,9 +25,9 @@ class AlphabetList extends StatefulWidget {
 }
 
 class _AlphabetListState extends State<AlphabetList> {
-  late GlobalKey customScrollKey;
+  GlobalKey customScrollKey;
 
-  late SliverChildBuilderDelegate d;
+  SliverChildBuilderDelegate d;
 
   @override
   void initState() {
@@ -118,10 +118,10 @@ class _AlphabetListState extends State<AlphabetList> {
   }
 
   void _scrollControllerListener() {
-    RenderBox? customScrollViewRenderBox;
+    RenderBox customScrollViewRenderBox;
     try {
       customScrollViewRenderBox =
-          customScrollKey.currentContext?.findRenderObject() as RenderBox?;
+          customScrollKey.currentContext?.findRenderObject() as RenderBox;
       if (customScrollViewRenderBox != null) {
         widget.symbolChangeNotifierList.value = _getFirstVisibleItemGroupSymbol(
           customScrollViewRenderBox,
@@ -132,14 +132,14 @@ class _AlphabetListState extends State<AlphabetList> {
   }
 
   void _symbolChangeNotifierScrollbarListener() {
-    final String? tag = widget.symbolChangeNotifierScrollbar.value;
+    final String tag = widget.symbolChangeNotifierScrollbar.value;
     if (tag != null) {
       _showGroup(tag);
     }
   }
 
   Future<void> _showGroup(String symbol) async {
-    final RenderObject? renderObject = widget.items
+    final RenderObject renderObject = widget.items
         .firstWhere((element) => element.tag == symbol)
         .key
         .currentContext
@@ -149,17 +149,17 @@ class _AlphabetListState extends State<AlphabetList> {
     }
   }
 
-  String? _getFirstVisibleItemGroupSymbol(
+  String _getFirstVisibleItemGroupSymbol(
     RenderBox renderBoxScrollView,
     List<AlphabetListViewItemGroup> items,
   ) {
-    String? hit;
+    String hit;
 
     final result = BoxHitTestResult();
     for (final item in items) {
-      final RenderBox? renderBoxItem =
-          item.key.currentContext?.findRenderObject() as RenderBox?;
-      final Offset? localLocationItem = renderBoxItem?.globalToLocal(
+      final RenderBox renderBoxItem =
+          item.key.currentContext?.findRenderObject() as RenderBox;
+      final Offset localLocationItem = renderBoxItem?.globalToLocal(
         renderBoxScrollView.localToGlobal(
           Offset(0, widget.alphabetListOptions.topOffset ?? 0),
         ),
@@ -174,8 +174,8 @@ class _AlphabetListState extends State<AlphabetList> {
   }
 
   void _jumpTo(RenderObject object) {
-    final RenderAbstractViewport viewport = RenderAbstractViewport.of(object)!;
-    double? target;
+    final RenderAbstractViewport viewport = RenderAbstractViewport.of(object);
+    double target;
 
     target = viewport.getOffsetToReveal(object, .0).offset.clamp(
           widget.alphabetListOptions.topOffset ?? 0,

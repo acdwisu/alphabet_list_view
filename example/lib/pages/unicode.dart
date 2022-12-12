@@ -3,7 +3,7 @@ import 'package:alphabet_list_view_example/repository.dart' as repo;
 import 'package:flutter/material.dart';
 
 class ExampleUnicode extends StatelessWidget {
-  ExampleUnicode({Key? key}) : super(key: key);
+  ExampleUnicode({Key key}) : super(key: key);
 
   final List<AlphabetListViewItemGroup> animals = [
     for (var emojiType in repo.emojis.entries)

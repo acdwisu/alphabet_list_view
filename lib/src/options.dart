@@ -38,19 +38,19 @@ class ListOptions {
   }) : assert((topOffset ?? 0) >= 0);
 
   /// Optional background color.
-  final Color? backgroundColor;
+  final Color backgroundColor;
 
   /// Sets an offset to the upper edge.
   ///
   /// Must be >= 0 or [null]
   /// Does not work in combination with [stickySectionHeader] set to true.
-  final double? topOffset;
+  final double topOffset;
 
   /// Padding around the list.
-  final EdgeInsets? padding;
+  final EdgeInsets padding;
 
   /// Custom scroll physics.
-  final ScrollPhysics? physics;
+  final ScrollPhysics physics;
 
   /// Show the header above the items.
   final bool showSectionHeader;
@@ -62,13 +62,13 @@ class ListOptions {
   final bool showSectionHeaderForEmptySections;
 
   /// Optional [Widget] before the list.
-  final Widget? beforeList;
+  final Widget beforeList;
 
   /// Optional [Widget] after the list.
-  final Widget? afterList;
+  final Widget afterList;
 
   /// Builder function for headers.
-  final SymbolBuilder? listHeaderBuilder;
+  final SymbolBuilder listHeaderBuilder;
 }
 
 /// Options for the scrollbar of the AlphabetListView
@@ -88,13 +88,13 @@ class ScrollbarOptions {
   final double width;
 
   /// Padding around the sidebar.
-  final EdgeInsets? padding;
+  final EdgeInsets padding;
 
   /// Placement of the children in the sidebar.
   final MainAxisAlignment mainAxisAlignment;
 
   /// Optional background color for the sidebar.
-  final Color? backgroundColor;
+  final Color backgroundColor;
 
   /// A [List] of [String] representing the symbols to be shown.
   ///
@@ -109,10 +109,10 @@ class ScrollbarOptions {
   /// Force the position of the sidebar.
   ///
   /// If set, [Directionality] will be ignored.
-  final AlphabetScrollbarPosition? forcePosition;
+  final AlphabetScrollbarPosition forcePosition;
 
   /// Builder function for sidebar symbols.
-  final SymbolStateBuilder? symbolBuilder;
+  final SymbolStateBuilder symbolBuilder;
 }
 
 /// Options for the overlay of the AlphabetListView
@@ -130,7 +130,7 @@ class OverlayOptions {
   final Alignment alignment;
 
   /// Builder function for the overlay.
-  final SymbolBuilder? overlayBuilder;
+  final SymbolBuilder overlayBuilder;
 }
 
 /// Default symbols used by the sidebar.

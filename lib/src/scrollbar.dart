@@ -5,10 +5,10 @@ import 'package:flutter/rendering.dart';
 
 class AlphabetScrollbar extends StatefulWidget {
   const AlphabetScrollbar({
-    Key? key,
-    required this.items,
-    required this.symbolChangeNotifierScrollbar,
-    required this.symbolChangeNotifierList,
+    Key key,
+    this.items,
+    this.symbolChangeNotifierScrollbar,
+    this.symbolChangeNotifierList,
     this.alphabetScrollbarOptions = const ScrollbarOptions(),
   }) : super(key: key);
 
@@ -22,9 +22,9 @@ class AlphabetScrollbar extends StatefulWidget {
 }
 
 class _AlphabetScrollbarState extends State<AlphabetScrollbar> {
-  String? selectedSymbol;
-  late Map<String, GlobalKey> symbolKeys;
-  late List<String> uniqueItems;
+  String selectedSymbol;
+  Map<String, GlobalKey> symbolKeys;
+  List<String> uniqueItems;
 
   @override
   void initState() {
@@ -115,24 +115,24 @@ class _AlphabetScrollbarState extends State<AlphabetScrollbar> {
   }
 
   void _pointerMoveEventHandler(PointerEvent event) {
-    final String? symbol = _identifyTouchedSymbol(event, symbolKeys);
+    final String symbol = _identifyTouchedSymbol(event, symbolKeys);
     if (symbol != null) {
       _onSymbolTriggered(symbol);
     }
   }
 
-  String? _identifyTouchedSymbol(
+  String _identifyTouchedSymbol(
     PointerEvent details,
     Map<String, GlobalKey> symbolKeys,
   ) {
-    String? touchedSymbol;
+    String touchedSymbol;
 
     final result = BoxHitTestResult();
     for (var entry in symbolKeys.entries) {
       try {
-        RenderBox? renderBox =
-            entry.value.currentContext?.findRenderObject() as RenderBox?;
-        Offset? localLocation = renderBox?.globalToLocal(details.position);
+        RenderBox renderBox =
+            entry.value.currentContext?.findRenderObject() as RenderBox;
+        Offset localLocation = renderBox?.globalToLocal(details.position);
 
         if (localLocation != null &&
             renderBox != null &&

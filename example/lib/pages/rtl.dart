@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class ExampleRTL extends StatelessWidget {
-  ExampleRTL({Key? key}) : super(key: key);
+  ExampleRTL({Key key}) : super(key: key);
   final List<AlphabetListViewItemGroup> animals = [
     for (var animalLetter in repo.animals.entries)
       AlphabetListViewItemGroup(

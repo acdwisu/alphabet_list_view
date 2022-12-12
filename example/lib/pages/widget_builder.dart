@@ -3,7 +3,7 @@ import 'package:alphabet_list_view_example/repository.dart' as repo;
 import 'package:flutter/material.dart';
 
 class ExampleWidgetBuilder extends StatelessWidget {
-  ExampleWidgetBuilder({Key? key}) : super(key: key);
+  ExampleWidgetBuilder({Key key}) : super(key: key);
   final List<AlphabetListViewItemGroup> animals = [
     for (var animalLetter in repo.animals.entries)
       AlphabetListViewItemGroup(

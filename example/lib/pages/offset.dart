@@ -5,7 +5,7 @@ import 'package:alphabet_list_view_example/repository.dart' as repo;
 import 'package:flutter/material.dart';
 
 class ExampleOffset extends StatelessWidget {
-  ExampleOffset({Key? key}) : super(key: key);
+  ExampleOffset({Key key}) : super(key: key);
 
   final List<AlphabetListViewItemGroup> animals = [
     for (var animalLetter in repo.animals.entries)
@@ -49,7 +49,7 @@ class ExampleOffset extends StatelessWidget {
 }
 
 class Blur extends StatelessWidget {
-  const Blur({Key? key}) : super(key: key);
+  const Blur({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
